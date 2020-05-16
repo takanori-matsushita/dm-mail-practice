@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-emails = ["tknr2899@gmail.com", "lj.tj.0225@gmail.com", "t.matsushita@arcjobz.com"]
+emails = [ENV['EMAIL1'], ENV['EMAIL2'], ENV['EMAIL3']]
 pass = "password"
 
 emails.each_with_index do |email, n|
@@ -18,7 +18,7 @@ User.create!(
 end
 
 Admin.create!(
-  email: "tm.web.free@gmail.com",
+  email: ENV['EMAIL4'],
   password: pass,
   password_confirmation: pass
 )

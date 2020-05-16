@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 emails = ["tknr2899@gmail.com", "lj.tj.0225@gmail.com", "t.matsushita@arcjobz.com"]
 pass = "password"
+
 emails.each_with_index do |email, n|
 User.create!(
   name: "name-#{n+1}",
@@ -15,3 +16,9 @@ User.create!(
   password_confirmation: pass
 )
 end
+
+Admin.create!(
+  email: "tm.web.free@gmail.com",
+  password: pass,
+  password_confirmation: pass
+)

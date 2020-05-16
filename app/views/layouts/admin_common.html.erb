@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/head' %>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <%= link_to "DM System", managements_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="mr-auto"></div>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "nav-link btn btn-danger text-white" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="list-group list-group-flush col-md-2 sidebar p-0">
+        <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
+        <%= link_to "ダイレクトメール", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
+        <!-- <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
+        <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
+        <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %> -->
+      </div>
+      <div class="col-md-10" id="main">
+        <div class="container mt-5">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

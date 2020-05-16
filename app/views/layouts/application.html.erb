@@ -13,8 +13,16 @@
 
 <body>
   <%= render 'layouts/header' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+  <div class="alert alert-info">
+    <div class="container"><%= notice %></div>
+  </div>
+  <% end %>
+  <% if alert %>
+  <div class="alert alert-danger">
+    <div class="container"><%= alert %></div>
+  </div>
+  <% end %>
   <div class="container">
     <% if devise_controller? %>
     <div class="col-6 offset-3 bg-light p-5 rounded-lg">

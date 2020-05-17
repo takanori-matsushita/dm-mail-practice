@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @direct_mail.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @direct_mail.content %>
+</p>
+
+<%= link_to '編集', edit_direct_mail_path(@direct_mail), class: "btn btn-primary" %>
+<%= link_to 'もどる', direct_mails_path, class: "btn btn-danger" %>

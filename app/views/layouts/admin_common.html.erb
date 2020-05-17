@@ -3,7 +3,7 @@
 <%= render 'layouts/head' %>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
     <%= link_to "DM System", managements_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,11 @@
       </ul>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid admin-container">
     <div class="row">
       <div class="list-group list-group-flush col-md-2 sidebar p-0">
         <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
-        <%= link_to "ダイレクトメール", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
+        <%= link_to "ダイレクトメール", direct_mails_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
         <!-- <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
         <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %>
         <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %> -->

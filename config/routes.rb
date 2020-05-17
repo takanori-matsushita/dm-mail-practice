@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :direct_mails
   root to: "home#index"
   get '/managements', to: 'managements#index'
   devise_for :users, controllers: {

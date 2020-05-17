@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Direct Mails</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th width="200"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @direct_mails.each do |direct_mail| %>
+    <tr>
+      <td><%= direct_mail.title %></td>
+      <td><%= direct_mail.content %></td>
+      <td>
+        <%= link_to '詳細', direct_mail, class: "btn btn-sm btn-primary" %>
+        <%= link_to '編集', edit_direct_mail_path(direct_mail), class: "btn btn-sm btn-success" %>
+        <%= link_to '削除', direct_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規DM作成', new_direct_mail_path, class: "btn btn-info" %>

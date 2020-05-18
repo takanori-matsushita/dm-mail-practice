@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Direct Mails</h1>
 
 <table class="table table-striped">
@@ -7,7 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
-      <th width="200"></th>
+      <th width="250"></th>
     </tr>
   </thead>
 
@@ -20,6 +18,7 @@
         <%= link_to '詳細', direct_mail, class: "btn btn-sm btn-primary" %>
         <%= link_to '編集', edit_direct_mail_path(direct_mail), class: "btn btn-sm btn-success" %>
         <%= link_to '削除', direct_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        <%= link_to '配信', "/direct_mails/send/#{direct_mail.id}", method: :post, class: "btn btn-sm btn-info" %>
       </td>
     </tr>
     <% end %>

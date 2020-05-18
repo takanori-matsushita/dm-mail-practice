@@ -28,7 +28,17 @@
         <%= link_to "ダッシュボード", managements_path, class: "list-group-item list-group-item-action list-group-item-warning" %> -->
       </div>
       <div class="col-md-10" id="main">
-        <div class="container mt-5">
+        <div class="container mt-3">
+          <% if notice %>
+          <div class="alert alert-info">
+            <div class="container"><%= notice %></div>
+          </div>
+          <% end %>
+          <% if alert %>
+          <div class="alert alert-danger">
+            <div class="container"><%= alert %></div>
+          </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>

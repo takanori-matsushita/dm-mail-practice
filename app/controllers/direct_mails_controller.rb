@@ -1,32 +1,32 @@
 class DirectMailsController < ApplicationController
   layout 'admin_common'
   before_action :set_direct_mail, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /direct_mails
   # GET /direct_mails.json
   def index
     @direct_mails = DirectMail.all
   end
-
+  
   # GET /direct_mails/1
   # GET /direct_mails/1.json
   def show
   end
-
+  
   # GET /direct_mails/new
   def new
     @direct_mail = DirectMail.new
   end
-
+  
   # GET /direct_mails/1/edit
   def edit
   end
-
+  
   # POST /direct_mails
   # POST /direct_mails.json
   def create
     @direct_mail = DirectMail.new(direct_mail_params)
-
+    
     respond_to do |format|
       if @direct_mail.save
         format.html { redirect_to @direct_mail, notice: 'Direct mail was successfully created.' }
@@ -37,7 +37,7 @@ class DirectMailsController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /direct_mails/1
   # PATCH/PUT /direct_mails/1.json
   def update
@@ -51,7 +51,7 @@ class DirectMailsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /direct_mails/1
   # DELETE /direct_mails/1.json
   def destroy
@@ -61,15 +61,24 @@ class DirectMailsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mail_send
+    users = User.all
+    mail = DirectMail.find(params[:id])
+    users.each do |user|
+      ApplicationMailer.send_all_users(user, mail).deliver
+    end
+    redirect_to(direct_mails_path, notice: "メールを送信しました")
+  end
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_direct_mail
-      @direct_mail = DirectMail.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def direct_mail_params
-      params.require(:direct_mail).permit(:title, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_direct_mail
+    @direct_mail = DirectMail.find(params[:id])
+  end
+  
+  # Only allow a list of trusted parameters through.
+  def direct_mail_params
+    params.require(:direct_mail).permit(:title, :content)
+  end
 end

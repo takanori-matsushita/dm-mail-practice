@@ -64,14 +64,14 @@ class DirectMailsController < ApplicationController
   
   def send_all_users
     users = User.all
-    @addresses = []
-    users.each do |user|
-      @addresses << user.email
-    end
-      ApplicationMailer.send_dm(@addresses, @direct_mail).deliver
+    # @addresses = []
     # users.each do |user|
-    #   ApplicationMailer.send_dm(user.email, mail).deliver
+    #   @addresses << user.email
     # end
+    #   ApplicationMailer.send_dm(@addresses, @direct_mail).deliver
+    users.each do |user|
+      ApplicationMailer.send_dm(user, @direct_mail).deliver
+    end
     redirect_to(direct_mails_path, notice: "メールを送信しました")
   end
   

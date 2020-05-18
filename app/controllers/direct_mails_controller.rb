@@ -1,6 +1,6 @@
 class DirectMailsController < ApplicationController
   layout 'admin_common'
-  before_action :set_direct_mail, only: [:show, :edit, :update, :destroy]
+  before_action :set_direct_mail, only: [:show, :edit, :update, :destroy, :send_all_users]
   
   # GET /direct_mails
   # GET /direct_mails.json
@@ -64,12 +64,11 @@ class DirectMailsController < ApplicationController
   
   def send_all_users
     users = User.all
-    mail = DirectMail.find(params[:id])
     @addresses = []
     users.each do |user|
       @addresses << user.email
     end
-      ApplicationMailer.send_dm(@addresses, mail).deliver
+      ApplicationMailer.send_dm(@addresses, @direct_mail).deliver
     # users.each do |user|
     #   ApplicationMailer.send_dm(user.email, mail).deliver
     # end

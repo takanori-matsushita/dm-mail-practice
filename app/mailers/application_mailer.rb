@@ -1,11 +1,11 @@
 class ApplicationMailer < ActionMailer::Base
   default from: 'dm_system@mail.com'
   
-  def send_all_users(user, mail)
-    @user = user
+  def send_dm(addresses, mail)
+    @addresses = addresses
     @mail = mail
       mail(
-        to: @user.email,
+        to: @addresses,
         subject: @mail.title,
         body: @mail.content
       )

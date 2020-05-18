@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :direct_mails
-  post '/direct_mails/send/:id', to: 'direct_mails#mail_send'
+  post '/direct_mails/send/:id', to: 'direct_mails#send_all_users'
   root to: "home#index"
   get '/managements', to: 'managements#index'
   devise_for :users, controllers: {

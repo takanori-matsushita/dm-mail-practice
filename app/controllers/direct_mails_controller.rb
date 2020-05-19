@@ -64,6 +64,7 @@ class DirectMailsController < ApplicationController
   
   def send_all_users
     users = User.all
+    admin = Admin.first
     # @addresses = []
     # users.each do |user|
     #   @addresses << user.email
@@ -72,6 +73,7 @@ class DirectMailsController < ApplicationController
     users.each do |user|
       ApplicationMailer.send_dm(user, @direct_mail).deliver
     end
+    ApplicationMailer.send_admin(admin, @direct_mail).deliver
     redirect_to(direct_mails_path, notice: "メールを送信しました")
   end
   

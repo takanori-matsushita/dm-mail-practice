@@ -22,9 +22,11 @@ class ApplicationMailer < ActionMailer::Base
   # end
 
   def send_admin(admin, direct_mail)
+    @admin = admin
+    @direct_mail = direct_mail
     mail(
-      to: @user.email,
-      subject: @mail.title,
+      to: @admin.email,
+      subject: "DMを送付しました | DM-System",
       body: "#{direct_mail.title} のDMを一斉送信しました"
     )
   end

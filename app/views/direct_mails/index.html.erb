@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
+      <!-- <th>Content</th> -->
       <th width="250"></th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
     <% @direct_mails.each do |direct_mail| %>
     <tr>
       <td><%= direct_mail.title %></td>
-      <td><%= direct_mail.content %></td>
+      <!-- <td><%= direct_mail.content %></td> -->
       <td>
         <%= link_to '詳細', direct_mail, class: "btn btn-sm btn-primary" %>
         <%= link_to '編集', edit_direct_mail_path(direct_mail), class: "btn btn-sm btn-success" %>
